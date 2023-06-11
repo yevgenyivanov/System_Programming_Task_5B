@@ -21,7 +21,7 @@ public:
     ~MagicalContainer();                                        // Destructor (non-default)
     // functions
     void addElement(int);
-    int size() { return (int)this->_elements.size(); };
+    int size() const { return (int)this->_elements.size(); };
     void removeElement(int);
     void print(); // for troubleshooting
     // helper func for readding all elements
@@ -42,7 +42,7 @@ public:
         AscendingIterator(const AscendingIterator &);                                 // Copy constructor (non-default)
         AscendingIterator &operator=(const AscendingIterator &);                      // Copy assignment operator (non-default)
         AscendingIterator(AscendingIterator &&) noexcept = default;                   // Move constructor
-        AscendingIterator &operator=(AscendingIterator &&) noexcept { return *this; } // Move assignment operator (non-default)
+        AscendingIterator &operator=(AscendingIterator &&other) noexcept { return *this; } // Move assignment operator (non-default)
         ~AscendingIterator() = default;                                               // Destructor
 
         // logical comparisons
@@ -79,7 +79,7 @@ public:
         SideCrossIterator(const SideCrossIterator &);                                 // Copy constructor (non-default)
         SideCrossIterator &operator=(const SideCrossIterator &);                      // Copy assignment operator (non-default)
         SideCrossIterator(SideCrossIterator &&) noexcept = default;                   // Move constructor
-        SideCrossIterator &operator=(SideCrossIterator &&) noexcept { return *this; } // Move assignment operator (non-default)
+        SideCrossIterator &operator=(SideCrossIterator &&other) noexcept { return *this; } // Move assignment operator (non-default)
         ~SideCrossIterator() = default;                                               // Destructor
 
         // logical comparison
@@ -113,7 +113,7 @@ public:
         PrimeIterator(const PrimeIterator &);                                 // Copy constructor (non-default)
         PrimeIterator &operator=(const PrimeIterator &);                      // Copy assignment operator (non-default)
         PrimeIterator(PrimeIterator &&) noexcept = default;                   // Move constructor
-        PrimeIterator &operator=(PrimeIterator &&) noexcept { return *this; } // Move assignment operator (non-default)
+        PrimeIterator &operator=(PrimeIterator &&other) noexcept { return *this; } // Move assignment operator (non-default)
         ~PrimeIterator() = default;                                           // Destructor
         //
         // logical comparison

@@ -40,6 +40,7 @@ void MagicalContainer::addElement(int _recvVal)
 {
     this->_primeElems.clear();
     this->_elements.emplace_back(_recvVal);        // insert value to vector
+    this->_elements.shrink_to_fit();
     std::sort(_elements.begin(), _elements.end()); // sort vector (ascending order by default)
     this->reAddPrimes();                           // re-add all the primes
 }
@@ -53,6 +54,7 @@ void MagicalContainer::removeElement(int _recvVal)
     }
     this->_primeElems.clear(); // clear all previous pointers of primes in this->_elems
     this->_elements.erase(_iterator);
+    this->_elements.shrink_to_fit();
     // no need to sort again as vector will move already sorted elements
     this->reAddPrimes(); // re-add the primes again
 }
